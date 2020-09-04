@@ -1,0 +1,2 @@
+Run 3 Parallel Consumers
+Kafka will automatically balance the distribution
