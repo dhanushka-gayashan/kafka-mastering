@@ -25,14 +25,18 @@ public class WordCountApp {
 
     private static Topology createTopology() {
         StreamsBuilder builder = new StreamsBuilder();
+
         KStream<String, String> wordCountInput = builder.stream("word-count-input");
+
         KTable<String, Long> worldCounts = wordCountInput
                 .mapValues((ValueMapper<String, String>) String::toLowerCase)
                 .flatMapValues(value -> Arrays.asList(value.split(" ")))
                 .selectKey((key, value) -> value)
                 .groupByKey()
                 .count(Named.as("Counts"));
+
         worldCounts.toStream().to("word-count-output", Produced.with(Serdes.String(), Serdes.Long()));
+
         return builder.build();
     }
 
