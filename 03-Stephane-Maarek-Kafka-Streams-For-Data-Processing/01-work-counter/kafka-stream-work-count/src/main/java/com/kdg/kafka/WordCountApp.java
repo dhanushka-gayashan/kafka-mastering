@@ -14,7 +14,6 @@ import java.util.Properties;
 public class WordCountApp {
 
     private static Properties createConfig() {
-
         Properties config = new Properties();
         config.put(StreamsConfig.APPLICATION_ID_CONFIG, "word-count-application");
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
@@ -25,7 +24,6 @@ public class WordCountApp {
     }
 
     private static Topology createTopology() {
-
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> wordCountInput = builder.stream("word-count-input");
         KTable<String, Long> worldCounts = wordCountInput
@@ -40,7 +38,7 @@ public class WordCountApp {
 
     public static void main(String[] args) {
 
-        // Start Kafak Stream
+        // Start Kafka Stream
         KafkaStreams streams = new KafkaStreams(createTopology(), createConfig());
         streams.start();
 
