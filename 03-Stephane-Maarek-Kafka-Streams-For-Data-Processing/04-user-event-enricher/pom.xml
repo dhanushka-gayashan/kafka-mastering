@@ -5,18 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kdg.kafka</groupId>
-    <artifactId>kafka-producer-transactions</artifactId>
+    <artifactId>user-event-enricher</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-streams</artifactId>
-            <version>2.5.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
             <version>2.5.1</version>
         </dependency>
         <dependency>
@@ -28,12 +23,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.30</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -62,7 +51,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.kdg.kafka.TransactionsProducer</mainClass>
+                            <mainClass>com.kdg.kafka.UserEventEnricherApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
